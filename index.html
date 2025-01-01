@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text-to-Speech Demo | Saifs.ai</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Experience the power of AI Text-to-Speech technology with our interactive demo. Convert text to natural-sounding speech instantly.">
+    <meta name="keywords" content="AI text to speech, TTS, voice synthesis, speech generation, Saifs.ai">
+    <meta name="author" content="Saifs.ai">
+    <meta property="og:title" content="AI Text-to-Speech Demo | Saifs.ai">
+    <meta property="og:description" content="Transform text into natural speech with our AI-powered text-to-speech technology.">
+    <meta property="og:url" content="https://saifs.ai/ai-text-to-speech">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <nav>
+                <div class="logo">Saifs.ai TTS</div>
+                <a href="https://saifs.ai/ai-text-to-speech" class="cta-button">Visit Saifs.ai</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1>Experience the Future of <span class="highlight">AI Voice Technology</span></h1>
+                <p class="subtitle">Transform your text into natural-sounding speech instantly</p>
+            </section>
+
+            <section class="tts-demo">
+                <div class="container">
+                    <div class="input-section">
+                        <textarea 
+                            v-model="textInput" 
+                            placeholder="Enter your text here..."
+                            @input="updateCharacterCount"
+                        ></textarea>
+                        <div class="char-count">{{ characterCount }}/500 characters</div>
+                    </div>
+                    <div class="controls">
+                        <div class="voice-settings">
+                            <select v-model="selectedVoice">
+                                <option value="female">Female Voice</option>
+                                <option value="male">Male Voice</option>
+                            </select>
+                            <select v-model="selectedLanguage">
+                                <option value="en-US">English (US)</option>
+                                <option value="en-GB">English (UK)</option>
+                            </select>
+                        </div>
+                        <button 
+                            @click="convertToSpeech" 
+                            :disabled="!textInput || isProcessing"
+                            :class="{ 'processing': isProcessing }"
+                        >
+                            {{ isProcessing ? 'Converting...' : 'Convert to Speech' }}
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Why Choose Our AI Text-to-Speech?</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="icon">🎯</div>
+                        <h3>High Accuracy</h3>
+                        <p>Natural and human-like voice synthesis</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">⚡</div>
+                        <h3>Fast Processing</h3>
+                        <p>Real-time text to speech conversion</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🌐</div>
+                        <h3>Multiple Languages</h3>
+                        <p>Support for various languages and accents</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📱</div>
+                        <h3>Cross-Platform</h3>
+                        <p>Works on all devices and browsers</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>© 2024 Saifs.ai - AI Text-to-Speech Technology</p>
+                <a href="https://saifs.ai/ai-text-to-speech" class="footer-link">Learn More</a>
+            </div>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 
